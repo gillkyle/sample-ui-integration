@@ -4,10 +4,10 @@ import {
   Button,
   ButtonGroup,
   Checkbox,
+  FilledInput,
   FormControl,
   FormControlLabel,
   FormLabel,
-  InputLabel,
   MenuItem,
   Radio,
   RadioGroup,
@@ -41,7 +41,8 @@ export default function App() {
           <Button variant="contained">Button</Button>
         </GridItem>
         <GridItem>
-          <Button>
+          <FormControl>
+            <FormLabel>Movie Autocomplete</FormLabel>
             <Autocomplete
               disablePortal
               options={[
@@ -62,9 +63,11 @@ export default function App() {
                 },
               ]}
               sx={{ width: 300 }}
-              renderInput={(params) => <TextField {...params} label="Movie" />}
+              renderInput={(params) => (
+                <TextField {...params} variant="filled" />
+              )}
             />
-          </Button>
+          </FormControl>
         </GridItem>
         <GridItem>
           <ButtonGroup variant="contained" aria-label="Basic button group">
@@ -108,7 +111,10 @@ export default function App() {
             noValidate
             autoComplete="off"
           >
-            <TextField id="filled-basic" label="Filled" variant="filled" />
+            <FormControl>
+              <FormLabel>Filled</FormLabel>
+              <FilledInput id="filled-basic" />
+            </FormControl>
           </Box>
         </GridItem>
         <GridItem>
@@ -117,12 +123,8 @@ export default function App() {
               minWidth: 200,
             }}
           >
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              label="Age"
-            >
+            <FormLabel id="demo-simple-select-label">Age</FormLabel>
+            <Select labelId="demo-simple-select-label" id="demo-simple-select">
               <MenuItem value={10}>Ten</MenuItem>
               <MenuItem value={20}>Twenty</MenuItem>
               <MenuItem value={30}>Thirty</MenuItem>
